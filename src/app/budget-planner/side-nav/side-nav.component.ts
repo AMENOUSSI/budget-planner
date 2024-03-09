@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,21 +14,25 @@ export class SideNavComponent {
 
   isSlideOut = true;
   
+  constructor(private router: Router){}
+  
 
   toggleSideOut(): void {
-    this.isSlideOut = !this.toggleSideOut;
+    this.isSlideOut = !this.isSlideOut;
   }
 
-  onLogout() {
-    throw new Error('Method not implemented.');
-    }
-  onHistory() {
-    throw new Error('Method not implemented.');
-    }
   onProfile() {
-    throw new Error('Method not implemented.');
+    this.router.navigate(['budget-planner/profile']);
     }
   onDash() {
-    throw new Error('Method not implemented.');
+    this.router.navigate(['budget-planner/dashboard']);
     }
+  onHistory() {
+      this.router.navigate(['budget-planner/history']);
+      }
+  onLogout() {
+    this.router.navigate(['budget-planner/login'])
+    }
+  
+  
 }
